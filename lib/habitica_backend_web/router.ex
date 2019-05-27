@@ -15,6 +15,8 @@ defmodule HabiticaBackendWeb.Router do
     post "/users/sign_in", SessionController, :create
     delete "/users/sign_out", SessionController, :delete
 
+    get "/todos", TodotasksController, :showall
+    put "/todos/edit/:id", TodotasksController, :edit
     post "/todos/create", TodotasksController, :create
     get "/todos/show/:id", TodotasksController, :show
     delete "/todos/delete", TodotasksController, :delete

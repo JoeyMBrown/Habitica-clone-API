@@ -19,6 +19,11 @@ defmodule HabiticaBackendWeb.TodotasksController do
     render(conn, "show.json", todotasks: task)
   end
 
+  def showall(conn, _params) do
+    todotasks = Auth.list_todotasks
+    render(conn, "index.json", todotasks: todotasks)
+  end
+
   def delete(conn, %{"id" => id}) do
      case Auth.get_todotasks(id) do
       nil ->
@@ -30,5 +35,35 @@ defmodule HabiticaBackendWeb.TodotasksController do
           Auth.delete_todotasks(task)
           send_resp(conn, :ok, "Delete Successful")
      end
+  end
+
+
+#Big problem with edit, handling an update request that doesn't change the values in the DB.
+#If you try to update a DB thats value is 5.  And the updated value is 5, this will throw an error.
+  def edit(conn, %{"id" => id, "todotasks" => changes}) do
+    case Auth.get_todotasks(id) do
+      nil ->
+        conn
+      |> render(HabiticaBackendWeb.ErrorView, "404.json", message: "Task not found")
+      |> halt()
+
+      task ->
+        changeset = Todotasks.changeset(task, changes)
+        Auth.change_todotasks(task, changes)
+
+      case changeset do
+        %{changes: %{completed: _completed, difficulty: _difficulty, task: _task}} ->
+        render(conn, "showupdated.json", changeset)
+
+        %{changes: %{completed: _completed}} ->
+          render(conn, "finishtask.json", changeset)
+
+        _ ->
+          IO.inspect(changeset)
+          conn
+          |> render(HabiticaBackendWeb.ErrorView, "404.json", message: "Task not found")
+          |> halt()
+      end
+    end
   end
 end

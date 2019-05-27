@@ -133,4 +133,15 @@ defmodule HabiticaBackend.Auth do
     Repo.delete(task)
   end
 
+  def change_todotasks(%Todotasks{} = task, changes) do
+    changeset = Todotasks.changeset(task, changes)
+
+    changeset
+    |> Repo.update()
+  end
+
+  def list_todotasks do
+    Repo.all(Todotasks)
+  end
+
 end
