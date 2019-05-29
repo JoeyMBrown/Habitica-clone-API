@@ -9,6 +9,8 @@ defmodule HabiticaBackend.Auth do
   alias HabiticaBackend.Todotasks
   alias HabiticaBackend.Auth.User
 
+  alias HabiticaBackend.Completedtasks
+
   @doc """
   Returns the list of users.
 
@@ -142,6 +144,16 @@ defmodule HabiticaBackend.Auth do
 
   def list_todotasks do
     Repo.all(Todotasks)
+  end
+
+  def create_completedtask(attrs \\ %{}) do
+    %Completedtasks{}
+    |> Completedtasks.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def list_completedtasks do
+    Repo.all(Completedtasks)
   end
 
 end

@@ -20,6 +20,9 @@ defmodule HabiticaBackendWeb.Router do
     post "/todos/create", TodotasksController, :create
     get "/todos/show/:id", TodotasksController, :show
     delete "/todos/delete", TodotasksController, :delete
+
+    get "/completedtasks", CompletedtasksController, :showall
+    post "/completedtasks/create", CompletedtasksController, :create
   end
 
   scope "/api", HabiticaBackendWeb do

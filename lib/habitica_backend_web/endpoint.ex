@@ -42,6 +42,9 @@ defmodule HabiticaBackendWeb.Endpoint do
 
   plug Corsica,
     origins: "http://localhost:8080",
+    max_age: 83400,
+    allow_methods: ["GET", "OPTIONS", "POST", "DELETE", "PUT"],
+    allow_headers: ["content-type"],
     log: [rejected: :error, invalid: :warn, accepted: :debug]
 
   plug HabiticaBackendWeb.Router

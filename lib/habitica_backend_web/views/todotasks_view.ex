@@ -26,7 +26,8 @@ defmodule HabiticaBackendWeb.TodotasksView do
   def render("todotasks.json", %{todotasks: todotasks}) do
     %{completed: todotasks.completed,
       difficulty: todotasks.difficulty,
-      task: todotasks.task}
+      task: todotasks.task,
+      id: todotasks.id,}
   end
 
   def render("todotaskslist.json", %{todotasks: todotasks}) do
