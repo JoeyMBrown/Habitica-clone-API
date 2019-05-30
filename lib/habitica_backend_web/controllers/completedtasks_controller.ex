@@ -12,7 +12,7 @@ defmodule HabiticaBackendWeb.CompletedtasksController do
     end
   end
 
-  def showall(conn, _params) do
+  def index(conn, _params) do
     completedtasks = Auth.list_completedtasks
     render(conn, "index.json", completedtasks: completedtasks)
   end

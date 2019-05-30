@@ -18,8 +18,7 @@ defmodule HabiticaBackendWeb.Router do
 
     resources "/todos", TodotasksController
 
-    get "/completedtasks", CompletedtasksController, :showall
-    post "/completedtasks/create", CompletedtasksController, :create
+    resources "/completedtasks", CompletedtasksController, only: [:index, :create]
   end
 
   scope "/api", HabiticaBackendWeb do
