@@ -17,7 +17,7 @@ defmodule HabiticaBackendWeb.Router do
     delete "/users/sign_out", SessionController, :delete
 
     resources "/todos", TodotasksController
-
+    resources "/habits", HabittasksController
     resources "/completedtasks", CompletedtasksController, only: [:index, :create]
   end
 

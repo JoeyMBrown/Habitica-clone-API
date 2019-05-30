@@ -6,10 +6,11 @@ defmodule HabiticaBackend.Auth do
   import Ecto.Query, warn: false
   alias HabiticaBackend.Repo
 
-  alias HabiticaBackend.Todotasks
   alias HabiticaBackend.Auth.User
 
   alias HabiticaBackend.Completedtasks
+  alias HabiticaBackend.Habittasks
+  alias HabiticaBackend.Todotasks
 
   @doc """
   Returns the list of users.
@@ -123,6 +124,8 @@ defmodule HabiticaBackend.Auth do
     end
   end
 
+  #Start Todo Task Section #
+
   def create_todotasks(attrs \\ %{}) do
     %Todotasks{}
     |> Todotasks.changeset(attrs)
@@ -146,6 +149,10 @@ defmodule HabiticaBackend.Auth do
     Repo.all(Todotasks)
   end
 
+  #End Todo Task Section #
+
+  #Start Completed Task Section #
+
   def create_completedtask(attrs \\ %{}) do
     %Completedtasks{}
     |> Completedtasks.changeset(attrs)
@@ -156,4 +163,19 @@ defmodule HabiticaBackend.Auth do
     Repo.all(Completedtasks)
   end
 
+  #End Completed Task Section #
+
+  #Start Habit tasks Section#
+
+  def list_habittasks do
+    Repo.all(Habittasks)
+  end
+
+  def create_habittasks(attrs \\ %{}) do
+    %Habittasks{}
+    |> Habittasks.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  #End Habit tasks Section#
 end
