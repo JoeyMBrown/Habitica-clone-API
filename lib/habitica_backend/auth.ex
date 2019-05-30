@@ -7,6 +7,7 @@ defmodule HabiticaBackend.Auth do
   alias HabiticaBackend.Repo
 
   alias HabiticaBackend.Auth.User
+  alias HabiticaBackend.Player
 
   alias HabiticaBackend.Completedtasks
   alias HabiticaBackend.Habittasks
@@ -193,4 +194,20 @@ defmodule HabiticaBackend.Auth do
   end
 
   #End Daily tasks Section#
+
+  #Start Player Section#
+
+  def create_player(attrs \\ %{}) do
+    %Player{}
+    |> Player.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def get_player!(id), do: Repo.get!(Player, id)
+
+  def list_player do
+    Repo.all(Player)
+  end
+
+  #End Player Section#
 end

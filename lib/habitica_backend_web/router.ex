@@ -16,6 +16,8 @@ defmodule HabiticaBackendWeb.Router do
     post "/users/sign_in", SessionController, :create
     delete "/users/sign_out", SessionController, :delete
 
+    resources "/player", PlayerController
+
     resources "/todos", TodotasksController
     resources "/habits", HabittasksController
     resources "/dailies", DailytasksController
