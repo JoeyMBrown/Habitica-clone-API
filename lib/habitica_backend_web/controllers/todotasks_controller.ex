@@ -18,7 +18,7 @@ defmodule HabiticaBackendWeb.TodotasksController do
     render(conn, "show.json", todotasks: task)
   end
 
-  def showall(conn, _params) do
+  def index(conn, _params) do
     todotasks = Auth.list_todotasks
     render(conn, "index.json", todotasks: todotasks)
   end
