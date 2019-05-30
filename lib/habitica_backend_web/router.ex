@@ -18,6 +18,7 @@ defmodule HabiticaBackendWeb.Router do
 
     resources "/todos", TodotasksController
     resources "/habits", HabittasksController
+    resources "/dailies", DailytasksController
     resources "/completedtasks", CompletedtasksController, only: [:index, :create]
   end
 
