@@ -17,4 +17,17 @@ defmodule HabiticaBackendWeb.CompletedtasksController do
     render(conn, "index.json", completedtasks: completedtasks)
   end
 
+  def delete(conn, %{"id" => id}) do
+    case Auth.get_completedtasks(id) do
+     nil ->
+       conn
+     |> render(HabiticaBackendWeb.ErrorView, "404.json", message: "Task not found")
+     |> halt()
+
+     task ->
+         Auth.delete_completedtasks(task)
+         send_resp(conn, :ok, "Delete Successful")
+    end
+ end
+
 end

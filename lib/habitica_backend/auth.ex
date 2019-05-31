@@ -165,6 +165,12 @@ defmodule HabiticaBackend.Auth do
     Repo.all(Completedtasks)
   end
 
+  def get_completedtasks(id), do: Repo.get(Completedtasks, id)
+
+  def delete_completedtasks(%Completedtasks{} = task) do
+    Repo.delete(task)
+  end
+
   #End Completed Task Section #
 
   #Start Habit tasks Section#
