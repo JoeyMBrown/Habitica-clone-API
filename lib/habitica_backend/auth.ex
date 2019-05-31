@@ -215,5 +215,11 @@ defmodule HabiticaBackend.Auth do
     Repo.all(Player)
   end
 
+  def update_player(%Player{} = player, attrs) do
+    player
+    |> Player.changeset(attrs)
+    |> Repo.update()
+  end
+
   #End Player Section#
 end

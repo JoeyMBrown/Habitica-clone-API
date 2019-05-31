@@ -23,4 +23,12 @@ defmodule HabiticaBackendWeb.PlayerController do
     render(conn, "show.json", player: player)
   end
 
+  def update(conn, %{"id" => id, "player" => player_params}) do
+    player = Auth.get_player!(id)
+
+    with {:ok, %Player{} = player} <- Auth.update_player(player, player_params) do
+      render(conn, "show.json", player: player)
+    end
+  end
+
 end
