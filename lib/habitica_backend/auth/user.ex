@@ -8,6 +8,13 @@ defmodule HabiticaBackend.Auth.User do
     field :password, :string, virtual: true
     field :password_hash, :string
 
+    has_many :dailytasks, HabiticaBackend.Dailytasks
+    has_many :habittasks, HabiticaBackend.Habittasks
+    has_many :todotasks, HabiticaBackend.Todotasks
+    has_many :completedtasks, HabiticaBackend.Completedtasks
+
+    has_one :player, HabiticaBackend.Player
+
     timestamps()
   end
 
