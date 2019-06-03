@@ -13,6 +13,7 @@ defmodule HabiticaBackendWeb.Router do
   scope "/api", HabiticaBackendWeb do
     pipe_through :api
 
+    post "/users/sign_up", UserController, :create
     post "/users/sign_in", SessionController, :create
     delete "/users/sign_out", SessionController, :delete
 
