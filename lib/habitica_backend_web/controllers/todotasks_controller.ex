@@ -6,6 +6,10 @@ defmodule HabiticaBackendWeb.TodotasksController do
   alias HabiticaBackend.Auth
 
   def create(conn, %{"todotasks" => task_params}) do
+    #changeset = conn.assigns.current_user
+    IO.puts("_)_)_)_)_)_)_)_)_)_)_)")
+    IO.inspect(conn)
+    IO.puts("_)_)_)_)_)_)_)_)_)_)_)")
     with {:ok, %Todotasks{} = todotasks} <- Auth.create_todotasks(task_params) do
       conn
       |> put_status(:created)

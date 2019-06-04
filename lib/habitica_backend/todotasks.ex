@@ -14,8 +14,11 @@ defmodule HabiticaBackend.Todotasks do
 
   @doc false
   def changeset(todotasks, attrs) do
+    IO.puts("+_+_+_+_attrs_+_+_+_+_+")
+    IO.inspect(attrs)
+    IO.puts("+_+_+_+_attrs_+_+_+_+_+_+")
     todotasks
-    |> cast(attrs, [:task, :difficulty, :completed])
+    |> cast(attrs, [:task, :difficulty, :completed, :user_id])
     |> validate_required([:task, :difficulty, :completed])
   end
 end
