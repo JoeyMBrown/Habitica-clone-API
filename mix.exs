@@ -20,7 +20,7 @@ defmodule HabiticaBackend.MixProject do
   def application do
     [
       mod: {HabiticaBackend.Application, []},
-      extra_applications: [:logger, :runtime_tools, :corsica]
+      extra_applications: [:logger, :runtime_tools, :corsica, :edeliver]
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule HabiticaBackend.MixProject do
       {:bcrypt_elixir, "~> 2.0"},
       {:corsica, "~> 1.0"},
       {:ex_machina, "~> 2.3", only: :test},
-      {:distillery, "~> 2.0", runtime: false}
+      {:distillery, "~> 2.0", runtime: false},
+      {:edeliver, ">= 1.6.0"}
     ]
   end
 
