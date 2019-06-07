@@ -7,8 +7,6 @@ defmodule HabiticaBackend.Dailytasks do
     field :difficulty, :string
     field :task, :string
 
-    belongs_to :user, HabiticaBackend.Auth.User
-
     timestamps()
   end
 

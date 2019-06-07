@@ -13,8 +13,6 @@ defmodule HabiticaBackend.Player do
     field :maxmana, :integer
     field :name, :string
 
-    belongs_to :user, HabiticaBackend.Auth.User
-
     timestamps()
   end
 
