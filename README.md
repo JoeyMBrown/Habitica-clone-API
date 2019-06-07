@@ -27,6 +27,8 @@ The Habitica Clone API is hosted on a [Digital Ocean droplet][do-droplet] with t
 - Image: Ubuntu 18.04 x64
 - Size: 2 vCPUs, 4GB / 60GB Disk
 
+While serving our Phoenix application from behind an `Nginx` reverse proxy.
+
 I used the following resources to achieve this setup. 
 
 - [Elixir Phoneix 1.4 Deployments w/ Distillery and Edeliver on Ubuntu][how-to-deploy]
