@@ -41,7 +41,7 @@ defmodule HabiticaBackendWeb.Endpoint do
     signing_salt: "IPphf5pB"
 
   plug Corsica,
-    origins: "http://localhost:8080",
+    origins: ["http://localhost:8080", "https://task-rpg.com"],
     max_age: 83400,
     allow_methods: ["GET", "OPTIONS", "POST", "DELETE", "PUT"],
     allow_headers: ["content-type"],
