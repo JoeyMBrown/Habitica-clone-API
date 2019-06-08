@@ -10,7 +10,20 @@ _add notes here_
 
 ### Creating and Publishing a Release
 
-_add steps here_
+There are a few steps to creating and publishing a release, follow:
+
+  1. Generate a new release, `$mix edeliver build release production`
+    a.  This builds new release and stores it in .edeliver/releases
+    b. Make sure to change version number in mix.exs
+
+  2. Next, to push the new release, `$mix edeliver deploy release to production`
+    a. This uploads the release and extracts it, also starts the production server.
+
+  3. Check that the server is running the correct version, `$mix edeliver version production`
+  
+  4. Restart the production server, `$mix edeliver restart production`
+
+  5. Run migrations!  `$mix edeliver migrate production`
 
 ### Applying Migrations and other Useful Commands
 
