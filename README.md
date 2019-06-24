@@ -6,28 +6,33 @@ The backend for my Vue.js project.  Written in Elixir with phoenix framework.
 
 ### Configuration
 
-_add notes here_
+Version - Before creating a new release, make sure to update the version number
+in mix.exs
 
 ### Creating and Publishing a Release
 
 There are a few steps to creating and publishing a release, follow:
 
-  1. Generate a new release, `$mix edeliver build release production`
-    a.  This builds new release and stores it in .edeliver/releases
-    b. Make sure to change version number in mix.exs
+  - Generate a new release, `$mix edeliver build release production`
+    - This builds new release and stores it in .edeliver/releases
+    - Make sure to change version number in mix.exs
 
-  2. Next, to push the new release, `$mix edeliver deploy release to production`
-    a. This uploads the release and extracts it, also starts the production server.
-
-  3. Check that the server is running the correct version, `$mix edeliver version production`
+  - Next, to push the new release, `$mix edeliver deploy release to production`
   
-  4. Restart the production server, `$mix edeliver restart production`
+    - This uploads the release and extracts it, also starts the production server.
 
-  5. Run migrations!  `$mix edeliver migrate production`
+  - Check that the server is running the correct version, `$mix edeliver version production`
+  
+    - This is why updating the version number is crucial, without it testing version will 
+    be a tad more difficult.
+  
+  - Restart the production server, `$mix edeliver restart production`
+
+  - Run migrations!  `$mix edeliver migrate production`
 
 ### Applying Migrations and other Useful Commands
 
-_add notes here_
+If new migrations are added in a release, remember to do: `$mix edeliver migrate production`
 
 ## Hosting
 

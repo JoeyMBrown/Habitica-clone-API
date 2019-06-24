@@ -8,6 +8,7 @@ defmodule HabiticaBackend.Auth do
 
   alias HabiticaBackend.Auth.User
   alias HabiticaBackend.Player
+  alias HabiticaBackend.Rewards
 
   alias HabiticaBackend.Completedtasks
   alias HabiticaBackend.Habittasks
@@ -222,4 +223,18 @@ defmodule HabiticaBackend.Auth do
   end
 
   #End Player Section#
+
+  #Start Reward Section#
+
+  def list_rewards do
+    Repo.all(Rewards)
+  end
+
+  def create_rewards(attrs \\ %{}) do
+    %Rewards{}
+    |> Rewards.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  #End Reward Section#
 end

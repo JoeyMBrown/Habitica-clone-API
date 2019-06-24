@@ -22,6 +22,7 @@ defmodule HabiticaBackendWeb.Router do
     resources "/habits", HabittasksController
     resources "/dailies", DailytasksController
     resources "/completedtasks", CompletedtasksController, only: [:index, :create]
+    resources "/rewards", RewardsController, only: [:index, :create]
   end
 
   scope "/api", HabiticaBackendWeb do
