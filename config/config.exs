@@ -28,3 +28,8 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :habitica_backend, HabiticaBackend.Auth.Guardian,
+       issuer: "habitica_backend",
+       secret_key: "TuUDS4C+fvrF/qHE5XzGVDD5J2+Za/UpLlQNXRmZ3xxKUY+Qf+w02jU2PkRrU+LQ"
+

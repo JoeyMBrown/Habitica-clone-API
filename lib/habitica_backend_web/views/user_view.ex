@@ -10,6 +10,14 @@ defmodule HabiticaBackendWeb.UserView do
     %{data: render_one(user, UserView, "user.json")}
   end
 
+  def render("jwt.json", %{user: token}) do
+    %{data: render_one(token, UserView, "jsontoken.json")}
+  end
+
+  def render("jsontoken.json", %{user: token}) do
+    %{token: token}
+  end
+
   def render("user.json", %{user: user}) do
     %{id: user.id,
       email: user.email,

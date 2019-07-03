@@ -23,8 +23,7 @@ There are a few steps to creating and publishing a release, follow:
 
   - Check that the server is running the correct version, `$mix edeliver version production`
   
-    - This is why updating the version number is crucial, without it testing version will 
-    be a tad more difficult.
+    - This is why updating the version number is crucial, without it testing version will be a tad more difficult.
   
   - Restart the production server, `$mix edeliver restart production`
 

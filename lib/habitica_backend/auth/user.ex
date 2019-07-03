@@ -7,6 +7,7 @@ defmodule HabiticaBackend.Auth.User do
     field :is_active, :boolean, default: false
     field :password, :string, virtual: true
     field :password_hash, :string
+    has_many :todo_tasks, HabiticaBackend.Todotasks
 
     timestamps()
   end
@@ -16,6 +17,7 @@ defmodule HabiticaBackend.Auth.User do
     user
     |> cast(attrs, [:email, :is_active, :password])
     |> validate_required([:email, :is_active, :password])
+    |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
     |> put_password_hash()
   end
